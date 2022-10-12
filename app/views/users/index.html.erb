@@ -1,0 +1,8 @@
+<h1>Twitter</h1>
+<% @users.each do |user| %>
+<p>
+    <%= link_to user.uid, user.pass %>
+    <%= link_to '削除', "/users/#{user.id}", method: :delete %>
+</p>
+<% end %>
+<p><%= link_to '新規アカウント追加', '/users/new' %></p>
