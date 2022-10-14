@@ -1,0 +1,13 @@
+<p>ログイン成功</p>
+<% @tweets.each do |tweet| %>
+<p>
+    <%= tweet.message %>
+    <%= link_to 'いいね', tweets_path(tweet_id: tweet.id), method: :post %>
+    <%= link_to '削除', "/tweets/#{tweet.id}", method: :delete %>
+    
+</p>
+<% end %>
+<p>
+    <%= link_to 'ツイート', '/tweets/new' %><br>
+    <%= link_to 'ログアウト', top_logout_path %>
+</p>

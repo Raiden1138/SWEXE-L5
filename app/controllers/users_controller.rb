@@ -7,12 +7,13 @@ class UsersController < ApplicationController
   end
   def create
     user = User.new(uid: params[:user][:uid], pass: params[:user][:pass])
+    user.pass = BCrypt::Password.create('password')
     user.save
-    redirect_to '/'
+    redirect_to '/users/index'
   end
   def destroy
     user = User.find(params[:id])
     user.destroy
-    redirect_to '/'
+    redirect_to '/users/index'
   end
 end
